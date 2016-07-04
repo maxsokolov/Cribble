@@ -14,6 +14,16 @@
 		504181B71D2AD66500B89537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504181B51D2AD66500B89537 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		504181C21D2AD72900B89537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504181BE1D2AD72900B89537 /* Cribble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 504181921D2AD53300B89537;
+			remoteInfo = Cribble;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		504181A91D2AD66500B89537 /* CribbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CribbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504181AC1D2AD66500B89537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +32,7 @@
 		504181B31D2AD66500B89537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		504181B61D2AD66500B89537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		504181B81D2AD66500B89537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		504181BE1D2AD72900B89537 /* Cribble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cribble.xcodeproj; path = ../Cribble.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +49,7 @@
 		504181A01D2AD66500B89537 = {
 			isa = PBXGroup;
 			children = (
+				504181BE1D2AD72900B89537 /* Cribble.xcodeproj */,
 				504181AB1D2AD66500B89537 /* CribbleDemo */,
 				504181AA1D2AD66500B89537 /* Products */,
 			);
@@ -62,6 +74,14 @@
 				504181B81D2AD66500B89537 /* Info.plist */,
 			);
 			path = CribbleDemo;
+			sourceTree = "<group>";
+		};
+		504181BF1D2AD72900B89537 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				504181C31D2AD72900B89537 /* Cribble.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,12 +130,28 @@
 			mainGroup = 504181A01D2AD66500B89537;
 			productRefGroup = 504181AA1D2AD66500B89537 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 504181BF1D2AD72900B89537 /* Products */;
+					ProjectRef = 504181BE1D2AD72900B89537 /* Cribble.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				504181A81D2AD66500B89537 /* CribbleDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		504181C31D2AD72900B89537 /* Cribble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cribble.framework;
+			remoteRef = 504181C21D2AD72900B89537 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		504181A71D2AD66500B89537 /* Resources */ = {
@@ -288,6 +324,7 @@
 				504181BD1D2AD66500B89537 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

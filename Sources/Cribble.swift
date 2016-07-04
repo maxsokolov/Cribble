@@ -18,4 +18,39 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import Foundation
+import UIKit
+
+class CribbleView: UIView {
+    
+    
+}
+
+class CribbleViewController: UIViewController {
+    
+    
+}
+
+class CribbleWindow: UIWindow {
+
+    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        return false
+    }
+}
+
+public class Cribble {
+
+    private let window: CribbleWindow
+    private let cribbleView: CribbleView
+
+    public init() {
+
+        window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
+        window.rootViewController = CribbleViewController()
+        window.makeKeyAndVisible()
+
+        cribbleView = CribbleView(frame: CGRectMake(0, 0, 100, 700))
+        cribbleView.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.4)
+
+        window.addSubview(cribbleView)
+    }
+}
