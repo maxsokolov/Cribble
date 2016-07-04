@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		504181961D2AD53300B89537 /* Cribble.h in Headers */ = {isa = PBXBuildFile; fileRef = 504181951D2AD53300B89537 /* Cribble.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041819E1D2AD5BF00B89537 /* Cribble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		504181921D2AD53300B89537 /* Cribble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cribble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504181951D2AD53300B89537 /* Cribble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cribble.h; sourceTree = "<group>"; };
 		504181971D2AD53300B89537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5041819E1D2AD5BF00B89537 /* Cribble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cribble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +32,7 @@
 		504181881D2AD53300B89537 = {
 			isa = PBXGroup;
 			children = (
+				5041819D1D2AD5AE00B89537 /* Sources */,
 				504181941D2AD53300B89537 /* Cribble */,
 				504181931D2AD53300B89537 /* Products */,
 			);
@@ -50,6 +53,14 @@
 				504181971D2AD53300B89537 /* Info.plist */,
 			);
 			path = Cribble;
+			sourceTree = "<group>";
+		};
+		5041819D1D2AD5AE00B89537 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5041819E1D2AD5BF00B89537 /* Cribble.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +242,7 @@
 		5041819B1D2AD53300B89537 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -241,12 +254,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cribble.Cribble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5041819C1D2AD53300B89537 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -280,6 +295,7 @@
 				5041819C1D2AD53300B89537 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
