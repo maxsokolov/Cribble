@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cribble
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-       
-        
         return true
+    }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        guard motion == .MotionShake else { return }
+
+        Cribble.shared.hidden = !Cribble.shared.hidden
     }
 }

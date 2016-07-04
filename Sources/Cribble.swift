@@ -116,13 +116,42 @@ public struct CribbleOptions {
 }
 
 public class Cribble {
+    
+    public static let shared = Cribble()
 
-    private let window: CribbleWindow
+    private var window: CribbleWindow?
+    public var hidden: Bool = true {
+        didSet {
+            if !hidden {
+                display()
+            } else {
+                hide()
+            }
+        }
+    }
 
     public init(options: CribbleOptions = CribbleOptions.defaultOptions()) {
+        
+    }
+    
+    public func display() {
+        
+        if window != nil {
+            return
+        }
 
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window.rootViewController = CribbleViewController(options: options)
-        window.makeKeyAndVisible()
+        window?.rootViewController = CribbleViewController(options: CribbleOptions.defaultOptions())
+        window?.makeKeyAndVisible()
+    }
+    
+    public func hide() {
+        
+        if window == nil {
+            return
+        }
+
+        window?.removeFromSuperview()
+        window = nil
     }
 }
