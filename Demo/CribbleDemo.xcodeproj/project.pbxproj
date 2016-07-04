@@ -12,6 +12,8 @@
 		504181B21D2AD66500B89537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504181B01D2AD66500B89537 /* Main.storyboard */; };
 		504181B41D2AD66500B89537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504181B31D2AD66500B89537 /* Assets.xcassets */; };
 		504181B71D2AD66500B89537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504181B51D2AD66500B89537 /* LaunchScreen.storyboard */; };
+		DA1E90531D2AEE390004F0C4 /* Cribble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504181C31D2AD72900B89537 /* Cribble.framework */; };
+		DA1E90541D2AEE390004F0C4 /* Cribble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 504181C31D2AD72900B89537 /* Cribble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,7 +24,28 @@
 			remoteGlobalIDString = 504181921D2AD53300B89537;
 			remoteInfo = Cribble;
 		};
+		DA1E90551D2AEE390004F0C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504181BE1D2AD72900B89537 /* Cribble.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 504181911D2AD53300B89537;
+			remoteInfo = Cribble;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DA1E90571D2AEE390004F0C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DA1E90541D2AEE390004F0C4 /* Cribble.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		504181A91D2AD66500B89537 /* CribbleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CribbleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1E90531D2AEE390004F0C4 /* Cribble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +118,12 @@
 				504181A51D2AD66500B89537 /* Sources */,
 				504181A61D2AD66500B89537 /* Frameworks */,
 				504181A71D2AD66500B89537 /* Resources */,
+				DA1E90571D2AEE390004F0C4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DA1E90561D2AEE390004F0C4 /* PBXTargetDependency */,
 			);
 			name = CribbleDemo;
 			productName = CribbleDemo;
@@ -177,6 +203,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA1E90561D2AEE390004F0C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cribble;
+			targetProxy = DA1E90551D2AEE390004F0C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		504181B01D2AD66500B89537 /* Main.storyboard */ = {
@@ -285,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CribbleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -297,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CribbleDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

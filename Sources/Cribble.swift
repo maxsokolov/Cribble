@@ -22,18 +22,78 @@ import UIKit
 
 class CribbleView: UIView {
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    private let cribbleOptions: CribbleOptions
+
+    init(frame: CGRect, options: CribbleOptions) {
         
-        backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.4)
+        cribbleOptions = options
+        super.init(frame: frame)
+        backgroundColor = UIColor.clearColor()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("")
+    }
+
+    override func drawRect(rect: CGRect) {
+        
+        let lineWidth = 1 / UIScreen.mainScreen().scale
+
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, lineWidth)
+        CGContextSetStrokeColorWithColor(context, cribbleOptions.color.CGColor)
+        
+        // Calculate column width and row height
+        let columnWidth: CGFloat = cribbleOptions.horizontalStep
+        let rowHeight: CGFloat = cribbleOptions.verticalStep
+        
+        let numberOfColumns: CGFloat = UIScreen.mainScreen().bounds.width / columnWidth
+        let numberOfRows: CGFloat = UIScreen.mainScreen().bounds.height / rowHeight
+        
+        // Drawing column lines
+        for var i in 0..<Int(numberOfColumns) + 1 {
+        
+            let startPoint = CGPoint(x: columnWidth * CGFloat(i) - lineWidth, y: 0)
+            let endPoint = CGPoint(x: startPoint.x, y: frame.size.height)
+
+            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
+            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
+            CGContextStrokePath(context)
+            
+            i += 1
+        }
+        
+        // Drawing row lines
+        for var j in 0..<Int(numberOfRows) + 1 {
+        
+            let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j) - lineWidth)
+            let endPoint = CGPoint(x: frame.size.width, y: startPoint.y)
+            
+            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
+            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
+            CGContextStrokePath(context)
+            
+            j += 1
+        }
     }
 }
 
 class CribbleViewController: UIViewController {
     
-    override func loadView() {
+    private let cribbleOptions: CribbleOptions
+    
+    init(options: CribbleOptions) {
         
-        view = CribbleView(frame: UIScreen.mainScreen().bounds)
+        cribbleOptions = options
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("")
+    }
+
+    override func loadView() {
+        view = CribbleView(frame: UIScreen.mainScreen().bounds, options: cribbleOptions)
     }
 }
 
@@ -44,14 +104,25 @@ class CribbleWindow: UIWindow {
     }
 }
 
+public struct CribbleOptions {
+
+    let horizontalStep: CGFloat
+    let verticalStep: CGFloat
+    let color: UIColor
+    
+    static func defaultOptions() -> CribbleOptions {
+        return CribbleOptions(horizontalStep: 8, verticalStep: 8, color: UIColor.redColor().colorWithAlphaComponent(0.5))
+    }
+}
+
 public class Cribble {
 
     private let window: CribbleWindow
 
-    public init() {
+    public init(options: CribbleOptions = CribbleOptions.defaultOptions()) {
 
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window.rootViewController = CribbleViewController()
+        window.rootViewController = CribbleViewController(options: options)
         window.makeKeyAndVisible()
     }
 }
