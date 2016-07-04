@@ -22,12 +22,19 @@ import UIKit
 
 class CribbleView: UIView {
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.4)
+    }
 }
 
 class CribbleViewController: UIViewController {
     
-    
+    override func loadView() {
+        
+        view = CribbleView(frame: UIScreen.mainScreen().bounds)
+    }
 }
 
 class CribbleWindow: UIWindow {
@@ -40,17 +47,11 @@ class CribbleWindow: UIWindow {
 public class Cribble {
 
     private let window: CribbleWindow
-    private let cribbleView: CribbleView
 
     public init() {
 
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
         window.rootViewController = CribbleViewController()
         window.makeKeyAndVisible()
-
-        cribbleView = CribbleView(frame: CGRectMake(0, 0, 100, 700))
-        cribbleView.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.4)
-
-        window.addSubview(cribbleView)
     }
 }
