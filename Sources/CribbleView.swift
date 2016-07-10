@@ -22,7 +22,7 @@ import UIKit
 
 class CribbleView: UIView {
 
-    private var cribbleOptions = CribbleOptions.defaultOptions() {
+    var options = CribbleOptions.defaultOptions() {
         didSet {
             setNeedsDisplay()
         }
@@ -34,11 +34,11 @@ class CribbleView: UIView {
         
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, lineWidth)
-        CGContextSetStrokeColorWithColor(context, cribbleOptions.color.CGColor)
+        CGContextSetStrokeColorWithColor(context, options.color.colorWithAlphaComponent(options.opacity).CGColor)
         
         // Calculate column width and row height
-        let columnWidth: CGFloat = cribbleOptions.horizontalStep
-        let rowHeight: CGFloat = cribbleOptions.verticalStep
+        let columnWidth: CGFloat = options.horizontalStep
+        let rowHeight: CGFloat = options.verticalStep
         
         let numberOfColumns: CGFloat = UIScreen.mainScreen().bounds.width / columnWidth
         let numberOfRows: CGFloat = UIScreen.mainScreen().bounds.height / rowHeight

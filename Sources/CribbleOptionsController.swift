@@ -94,6 +94,14 @@ class CribbleOptionsController: UIViewController {
     }
     
     @IBAction func closeButtonClicked(sender: UIButton) {
+        
+        let step = Float(sizeTextField.text ?? "") ?? 8
+        let opacity = opacitySlider.value
+    
+        let options = CribbleOptions(horizontalStep: CGFloat(step), verticalStep: CGFloat(step), opacity: CGFloat(opacity), color: colors[colorIndex].color)
+
+        onOptionsChanged?(options: options)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
