@@ -21,13 +21,64 @@
 import UIKit
 
 class CribbleOptionsController: UIViewController {
+
+    @IBOutlet weak var optionsView: UIView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var sizeTextField: UITextField!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var colorValueLabel: UILabel!
+    @IBOutlet weak var opacitySlider: UISlider!
+    @IBOutlet weak var opacityLabel: UILabel!
+    @IBOutlet weak var opacityValueLabel: UILabel!
+    @IBOutlet weak var separatorView1: UIView!
+    @IBOutlet weak var separatorView2: UIView!
+    @IBOutlet weak var separatorView1HeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var separatorView2HeightConstraint: NSLayoutConstraint!
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    @IBAction func closeButtonClicked(sender: UIButton) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        separatorView1HeightConstraint.constant = 1 / UIScreen.mainScreen().scale
+        separatorView2HeightConstraint.constant = 1 / UIScreen.mainScreen().scale
+        
+        optionsView.layer.masksToBounds = false
+        optionsView.layer.shadowRadius = 5
+        optionsView.layer.shadowOpacity = 0.1
+        optionsView.layer.shadowOffset = CGSizeMake(0, 10)
+        
+        closeButton.layer.masksToBounds = false
+        closeButton.layer.shadowRadius = 5
+        closeButton.layer.shadowOpacity = 0.1
+        closeButton.layer.shadowOffset = CGSizeMake(0, 10)
+        
+        setupColors(UIColor.orangeColor())
+    }
+    
+    func setupColors(color: UIColor) {
 
+        view.backgroundColor = color
+        separatorView1.backgroundColor = color
+        separatorView2.backgroundColor = color
+        sizeLabel.textColor = color
+        sizeTextField.textColor = color
+        colorLabel.textColor = color
+        colorValueLabel.textColor = color
+        opacityLabel.textColor = color
+        opacityValueLabel.textColor = color
+        opacitySlider.minimumTrackTintColor = color
+        opacitySlider.maximumTrackTintColor = color
+    }
+    
+    @IBAction func closeButtonClicked(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func opacityValueChanged(sender: UISlider) {
+    
     }
 }

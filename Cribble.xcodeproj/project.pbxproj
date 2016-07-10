@@ -13,6 +13,7 @@
 		DAC4F5BE1D325463004DA9DF /* CribbleOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */; };
 		DAC4F5C01D3254A3004DA9DF /* CribbleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */; };
 		DAC4F5C21D325533004DA9DF /* CribbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5C11D325533004DA9DF /* CribbleView.swift */; };
+		DAC4F5C41D327C9B004DA9DF /* CribbleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5C31D327C9B004DA9DF /* CribbleOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleOptionsController.swift; sourceTree = "<group>"; };
 		DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleController.swift; sourceTree = "<group>"; };
 		DAC4F5C11D325533004DA9DF /* CribbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleView.swift; sourceTree = "<group>"; };
+		DAC4F5C31D327C9B004DA9DF /* CribbleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */,
 				5041819E1D2AD5BF00B89537 /* Cribble.swift */,
+				DAC4F5C31D327C9B004DA9DF /* CribbleOptions.swift */,
 				DAC4F5C11D325533004DA9DF /* CribbleView.swift */,
 				DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */,
 				DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */,
@@ -157,6 +160,7 @@
 				DAC4F5BE1D325463004DA9DF /* CribbleOptionsController.swift in Sources */,
 				DAC4F5C01D3254A3004DA9DF /* CribbleController.swift in Sources */,
 				DAC4F5C21D325533004DA9DF /* CribbleView.swift in Sources */,
+				DAC4F5C41D327C9B004DA9DF /* CribbleOptions.swift in Sources */,
 				5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

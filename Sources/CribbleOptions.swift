@@ -20,54 +20,13 @@
 
 import UIKit
 
-class CribbleWindow: UIWindow {
-
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        return true
-    }
-}
-
-public class Cribble {
+public struct CribbleOptions {
     
-    public static let shared = Cribble()
-
-    private var window: CribbleWindow?
-    private var cribbleController: CribbleController?
+    let horizontalStep: CGFloat
+    let verticalStep: CGFloat
+    let color: UIColor
     
-    public var hidden: Bool = true {
-        didSet {
-            if !hidden {
-                display()
-            } else {
-                hide()
-            }
-        }
-    }
-
-    public init(options: CribbleOptions = CribbleOptions.defaultOptions()) {
-        
-    }
-    
-    public func display() {
-        
-        if window != nil {
-            return
-        }
-        
-        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
-        
-        window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = cribbleController
-        window?.makeKeyAndVisible()
-    }
-    
-    public func hide() {
-        
-        if window == nil {
-            return
-        }
-
-        window?.removeFromSuperview()
-        window = nil
+    static func defaultOptions() -> CribbleOptions {
+        return CribbleOptions(horizontalStep: 8, verticalStep: 8, color: UIColor.redColor().colorWithAlphaComponent(0.5))
     }
 }
