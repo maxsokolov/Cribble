@@ -84,8 +84,11 @@ class CribbleOptionsController: UIViewController {
             colorIndex = 0
         }
         
+        let color = colors[colorIndex]
+        colorValueLabel.text = color.title
+        
         UIView.animateWithDuration(0.4) {
-            self.setupColors(self.colors[self.colorIndex])
+            self.setupColors(color.color)
         }
     }
     

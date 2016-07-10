@@ -20,14 +20,43 @@
 
 import UIKit
 
+enum CribbleColor {
+
+    case orange
+    case green
+    case blue
+
+    var color: UIColor {
+        switch self {
+        case .orange:
+            return UIColor.orangeColor()
+        case .green:
+            return UIColor.greenColor()
+        case .blue:
+            return UIColor.blueColor()
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .orange:
+            return "Orange"
+        case .green:
+            return "Green"
+        case .blue:
+            return "Blue"
+        }
+    }
+}
+
 public struct CribbleOptions {
     
     let horizontalStep: CGFloat
     let verticalStep: CGFloat
     let color: UIColor
-    
-    static func colors() -> [UIColor] {
-        return [UIColor.orangeColor(), UIColor.blueColor(), UIColor.greenColor()]
+
+    static func colors() -> [CribbleColor] {
+        return [.orange, .green, .blue]
     }
     
     static func defaultOptions() -> CribbleOptions {
