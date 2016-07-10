@@ -20,83 +20,6 @@
 
 import UIKit
 
-class CribbleView: UIView {
-    
-    private let cribbleOptions: CribbleOptions
-
-    init(frame: CGRect, options: CribbleOptions) {
-        
-        cribbleOptions = options
-        super.init(frame: frame)
-        backgroundColor = UIColor.clearColor()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("")
-    }
-
-    override func drawRect(rect: CGRect) {
-        
-        let lineWidth = 1 / UIScreen.mainScreen().scale
-
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, lineWidth)
-        CGContextSetStrokeColorWithColor(context, cribbleOptions.color.CGColor)
-        
-        // Calculate column width and row height
-        let columnWidth: CGFloat = cribbleOptions.horizontalStep
-        let rowHeight: CGFloat = cribbleOptions.verticalStep
-        
-        let numberOfColumns: CGFloat = UIScreen.mainScreen().bounds.width / columnWidth
-        let numberOfRows: CGFloat = UIScreen.mainScreen().bounds.height / rowHeight
-        
-        // Drawing column lines
-        for var i in 0..<Int(numberOfColumns) + 1 {
-        
-            let startPoint = CGPoint(x: columnWidth * CGFloat(i) - lineWidth, y: 0)
-            let endPoint = CGPoint(x: startPoint.x, y: frame.size.height)
-
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
-            
-            i += 1
-        }
-        
-        // Drawing row lines
-        for var j in 0..<Int(numberOfRows) + 1 {
-        
-            let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j) - lineWidth)
-            let endPoint = CGPoint(x: frame.size.width, y: startPoint.y)
-            
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
-            
-            j += 1
-        }
-    }
-}
-
-class CribbleViewController: UIViewController {
-    
-    private let cribbleOptions: CribbleOptions
-    
-    init(options: CribbleOptions) {
-        
-        cribbleOptions = options
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("")
-    }
-
-    override func loadView() {
-        view = CribbleView(frame: UIScreen.mainScreen().bounds, options: cribbleOptions)
-    }
-}
-
 class CribbleWindow: UIWindow {
 
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
@@ -139,9 +62,9 @@ public class Cribble {
         if window != nil {
             return
         }
-
+        
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = CribbleViewController(options: CribbleOptions.defaultOptions())
+        window?.rootViewController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController")
         window?.makeKeyAndVisible()
     }
     

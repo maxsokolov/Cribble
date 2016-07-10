@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		504181961D2AD53300B89537 /* Cribble.h in Headers */ = {isa = PBXBuildFile; fileRef = 504181951D2AD53300B89537 /* Cribble.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041819E1D2AD5BF00B89537 /* Cribble.swift */; };
+		DAC4F5BC1D325318004DA9DF /* Cribble.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */; };
+		DAC4F5BE1D325463004DA9DF /* CribbleOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */; };
+		DAC4F5C01D3254A3004DA9DF /* CribbleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */; };
+		DAC4F5C21D325533004DA9DF /* CribbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5C11D325533004DA9DF /* CribbleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +20,10 @@
 		504181951D2AD53300B89537 /* Cribble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cribble.h; sourceTree = "<group>"; };
 		504181971D2AD53300B89537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5041819E1D2AD5BF00B89537 /* Cribble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cribble.swift; sourceTree = "<group>"; };
+		DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cribble.storyboard; sourceTree = "<group>"; };
+		DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleOptionsController.swift; sourceTree = "<group>"; };
+		DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleController.swift; sourceTree = "<group>"; };
+		DAC4F5C11D325533004DA9DF /* CribbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +66,11 @@
 		5041819D1D2AD5AE00B89537 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */,
 				5041819E1D2AD5BF00B89537 /* Cribble.swift */,
+				DAC4F5C11D325533004DA9DF /* CribbleView.swift */,
+				DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */,
+				DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -131,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC4F5BC1D325318004DA9DF /* Cribble.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC4F5BE1D325463004DA9DF /* CribbleOptionsController.swift in Sources */,
+				DAC4F5C01D3254A3004DA9DF /* CribbleController.swift in Sources */,
+				DAC4F5C21D325533004DA9DF /* CribbleView.swift in Sources */,
 				5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
