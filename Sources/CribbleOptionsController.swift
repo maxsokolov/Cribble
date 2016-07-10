@@ -22,5 +22,12 @@ import UIKit
 
 class CribbleOptionsController: UIViewController {
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
+    @IBAction func closeButtonClicked(sender: UIButton) {
+
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

@@ -23,7 +23,7 @@ import UIKit
 class CribbleWindow: UIWindow {
 
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        return false
+        return true
     }
 }
 
@@ -43,6 +43,8 @@ public class Cribble {
     public static let shared = Cribble()
 
     private var window: CribbleWindow?
+    private var cribbleController: CribbleController?
+    
     public var hidden: Bool = true {
         didSet {
             if !hidden {
@@ -63,8 +65,10 @@ public class Cribble {
             return
         }
         
+        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
+        
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController")
+        window?.rootViewController = cribbleController
         window?.makeKeyAndVisible()
     }
     

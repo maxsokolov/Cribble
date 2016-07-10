@@ -22,5 +22,7 @@ import UIKit
 
 class CribbleController: UIViewController {
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
 }
