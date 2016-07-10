@@ -36,6 +36,9 @@ class CribbleOptionsController: UIViewController {
     @IBOutlet weak var separatorView1HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorView2HeightConstraint: NSLayoutConstraint!
     
+    var colors = CribbleOptions.colors()
+    var colorIndex = 0
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -72,6 +75,18 @@ class CribbleOptionsController: UIViewController {
         opacityValueLabel.textColor = color
         opacitySlider.minimumTrackTintColor = color
         opacitySlider.maximumTrackTintColor = color
+    }
+    
+    @IBAction func colorButtonClicked(sender: UIButton) {
+
+        colorIndex += 1
+        if colorIndex == colors.count {
+            colorIndex = 0
+        }
+        
+        UIView.animateWithDuration(0.4) {
+            self.setupColors(self.colors[self.colorIndex])
+        }
     }
     
     @IBAction func closeButtonClicked(sender: UIButton) {

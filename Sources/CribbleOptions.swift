@@ -26,6 +26,10 @@ public struct CribbleOptions {
     let verticalStep: CGFloat
     let color: UIColor
     
+    static func colors() -> [UIColor] {
+        return [UIColor.orangeColor(), UIColor.blueColor(), UIColor.greenColor()]
+    }
+    
     static func defaultOptions() -> CribbleOptions {
         return CribbleOptions(horizontalStep: 8, verticalStep: 8, color: UIColor.redColor().colorWithAlphaComponent(0.5))
     }
