@@ -21,9 +21,13 @@
 import UIKit
 
 class CribbleWindow: UIWindow {
+    
+    var touchableRect: CGRect?
 
     override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        return true
+        guard let rect = touchableRect else { return true }
+
+        return CGRectContainsPoint(rect, point)
     }
 }
 
@@ -53,8 +57,11 @@ public class Cribble {
         if window != nil {
             return
         }
-        
+    
         cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
+        cribbleController?.onChangeOptionsButtonFrame = { [weak self] frame in
+            self?.window?.touchableRect = frame
+        }
         
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = cribbleController

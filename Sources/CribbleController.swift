@@ -21,8 +21,37 @@
 import UIKit
 
 class CribbleController: UIViewController {
+
+    @IBOutlet weak var optionsButton: UIButton!
+
+    var onChangeOptionsButtonFrame: ((frame: CGRect?) -> Void)?
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        optionsButton.layer.masksToBounds = false
+        optionsButton.layer.shadowRadius = 5
+        optionsButton.layer.shadowOpacity = 0.1
+        optionsButton.layer.shadowOffset = CGSizeMake(0, 10)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        onChangeOptionsButtonFrame?(frame: optionsButton.frame)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        onChangeOptionsButtonFrame?(frame: nil)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let optionsController = segue.destinationViewController as? CribbleOptionsController else { return }
+        
+        optionsController.onOptionsChanged = { options in
+            
+        }
     }
 }

@@ -38,6 +38,7 @@ class CribbleOptionsController: UIViewController {
     
     var colors = CribbleOptions.colors()
     var colorIndex = 0
+    var onOptionsChanged: ((options: CribbleOptions) -> Void)?
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -96,7 +97,7 @@ class CribbleOptionsController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func opacityValueChanged(sender: UISlider) {
-    
+    @IBAction func opacityValueChanged(slider: UISlider) {
+        opacityValueLabel.text = String(format: "%.1f", slider.value)
     }
 }
