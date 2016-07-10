@@ -16,7 +16,7 @@ An [example app](Demo) is included demonstrating Cribble's functionality.
 
 #### Basic usage
 
-Simply put the following lines to your app delegate:
+Simply add the following lines into your app delegate:
 ```swift
 import Cribble
 
@@ -26,6 +26,7 @@ override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
 	Cribble.shared.hidden = !Cribble.shared.hidden
 }
 ```
+Shake a device and explore ui's roughness.
 
 ## Installation
 
