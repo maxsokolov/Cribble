@@ -10,6 +10,8 @@
 
 Cribble - tool for visual testing builds.
 
+![Cribble](https://d13yacurqjgara.cloudfront.net/users/108183/screenshots/2804436/gridsystem.png)
+
 ## Getting Started
 
 An [example app](Demo) is included demonstrating Cribble's functionality.
