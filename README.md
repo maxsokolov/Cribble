@@ -8,7 +8,7 @@
 	<a href="https://raw.githubusercontent.com/maxsokolov/cribble/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
 </p>
 
-Cribble - tool for visual testing builds.
+Cribble - a tool for visual testing iPhone and iPad apps. Every pixel counts.
 
 ![Cribble](https://d13yacurqjgara.cloudfront.net/users/108183/screenshots/2804436/gridsystem.png)
 
