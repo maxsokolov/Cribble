@@ -22,29 +22,39 @@ import UIKit
 
 enum CribbleColor {
 
+    case red
     case orange
     case green
     case blue
+    case purple
 
     var color: UIColor {
         switch self {
+        case .red:
+            return UIColor(red: 1, green: 97.0 / 255.0, blue: 99.0 / 255.0, alpha: 1)
         case .orange:
-            return UIColor.orangeColor()
+            return UIColor(red: 1, green: 169.0 / 255.0, blue: 97.0 / 255.0, alpha: 1)
         case .green:
-            return UIColor.greenColor()
+            return UIColor(red: 121.0 / 255.0, green: 244.0 / 255.0, blue: 113.0 / 255.0, alpha: 1)
         case .blue:
-            return UIColor.blueColor()
+            return UIColor(red: 97.0 / 255.0, green: 182.0 / 255.0, blue: 1, alpha: 1)
+        case .purple:
+            return UIColor(red: 118.0 / 255.0, green: 113.0 / 255.0, blue: 244.0 / 255.0, alpha: 1)
         }
     }
 
     var title: String {
         switch self {
+        case .red:
+            return "Red"
         case .orange:
             return "Orange"
         case .green:
             return "Green"
         case .blue:
             return "Blue"
+        case .purple:
+            return "Purple"
         }
     }
 }
@@ -57,7 +67,7 @@ public struct CribbleOptions {
     let color: UIColor
 
     static func colors() -> [CribbleColor] {
-        return [.orange, .green, .blue]
+        return [.red, .orange, .green, .blue, .purple]
     }
     
     static func defaultOptions() -> CribbleOptions {
