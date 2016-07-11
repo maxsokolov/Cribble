@@ -69,8 +69,8 @@ public struct CribbleOptions {
     static func colors() -> [CribbleColor] {
         return [.red, .orange, .green, .blue, .purple]
     }
-    
+
     static func defaultOptions() -> CribbleOptions {
-        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, color: UIColor.redColor())
+        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, color: CribbleColor.red.color)
     }
 }

@@ -36,6 +36,8 @@ class CribbleController: UIViewController {
         optionsButton.layer.shadowRadius = 5
         optionsButton.layer.shadowOpacity = 0.2
         optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
+        
+        setupOptions(CribbleOptions.defaultOptions())
     }
     
     override func viewDidAppear(animated: Bool) {

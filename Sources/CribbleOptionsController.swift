@@ -60,7 +60,7 @@ class CribbleOptionsController: UIViewController {
         closeButton.layer.shadowOpacity = 0.1
         closeButton.layer.shadowOffset = CGSizeMake(0, 10)
         
-        setupColors(UIColor.orangeColor())
+        setupColors(colors[colorIndex].color)
     }
     
     func setupColors(color: UIColor) {
