@@ -10,6 +10,9 @@
 		5027A03B1D3559D0001AF471 /* cribble_close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A0381D3559D0001AF471 /* cribble_close_icon.png */; };
 		5027A03C1D3559D0001AF471 /* cribble_close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A0391D3559D0001AF471 /* cribble_close_icon@2x.png */; };
 		5027A03D1D3559D0001AF471 /* cribble_close_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A03A1D3559D0001AF471 /* cribble_close_icon@3x.png */; };
+		5027A0411D355DA2001AF471 /* cribble_options_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A03E1D355DA2001AF471 /* cribble_options_icon.png */; };
+		5027A0421D355DA2001AF471 /* cribble_options_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A03F1D355DA2001AF471 /* cribble_options_icon@2x.png */; };
+		5027A0431D355DA2001AF471 /* cribble_options_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A0401D355DA2001AF471 /* cribble_options_icon@3x.png */; };
 		504181961D2AD53300B89537 /* Cribble.h in Headers */ = {isa = PBXBuildFile; fileRef = 504181951D2AD53300B89537 /* Cribble.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041819E1D2AD5BF00B89537 /* Cribble.swift */; };
 		DAC4F5BC1D325318004DA9DF /* Cribble.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */; };
@@ -23,6 +26,9 @@
 		5027A0381D3559D0001AF471 /* cribble_close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cribble_close_icon.png; sourceTree = "<group>"; };
 		5027A0391D3559D0001AF471 /* cribble_close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_close_icon@2x.png"; sourceTree = "<group>"; };
 		5027A03A1D3559D0001AF471 /* cribble_close_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_close_icon@3x.png"; sourceTree = "<group>"; };
+		5027A03E1D355DA2001AF471 /* cribble_options_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cribble_options_icon.png; sourceTree = "<group>"; };
+		5027A03F1D355DA2001AF471 /* cribble_options_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_options_icon@2x.png"; sourceTree = "<group>"; };
+		5027A0401D355DA2001AF471 /* cribble_options_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_options_icon@3x.png"; sourceTree = "<group>"; };
 		504181921D2AD53300B89537 /* Cribble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cribble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504181951D2AD53300B89537 /* Cribble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cribble.h; sourceTree = "<group>"; };
 		504181971D2AD53300B89537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 		5041819D1D2AD5AE00B89537 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5027A03E1D355DA2001AF471 /* cribble_options_icon.png */,
+				5027A03F1D355DA2001AF471 /* cribble_options_icon@2x.png */,
+				5027A0401D355DA2001AF471 /* cribble_options_icon@3x.png */,
 				5027A0381D3559D0001AF471 /* cribble_close_icon.png */,
 				5027A0391D3559D0001AF471 /* cribble_close_icon@2x.png */,
 				5027A03A1D3559D0001AF471 /* cribble_close_icon@3x.png */,
@@ -157,6 +166,9 @@
 			files = (
 				5027A03C1D3559D0001AF471 /* cribble_close_icon@2x.png in Resources */,
 				DAC4F5BC1D325318004DA9DF /* Cribble.storyboard in Resources */,
+				5027A0421D355DA2001AF471 /* cribble_options_icon@2x.png in Resources */,
+				5027A0411D355DA2001AF471 /* cribble_options_icon.png in Resources */,
+				5027A0431D355DA2001AF471 /* cribble_options_icon@3x.png in Resources */,
 				5027A03B1D3559D0001AF471 /* cribble_close_icon.png in Resources */,
 				5027A03D1D3559D0001AF471 /* cribble_close_icon@3x.png in Resources */,
 			);

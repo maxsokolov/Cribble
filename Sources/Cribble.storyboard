@@ -24,6 +24,7 @@
                                     <constraint firstAttribute="width" constant="44" id="XHk-Oq-vRr"/>
                                     <constraint firstAttribute="height" constant="44" id="yXh-Vk-8SU"/>
                                 </constraints>
+                                <state key="normal" image="cribble_options_icon.png"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="22"/>
@@ -237,4 +238,7 @@
             <point key="canvasLocation" x="956" y="446"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cribble_options_icon.png" width="18" height="16"/>
+    </resources>
 </document>
