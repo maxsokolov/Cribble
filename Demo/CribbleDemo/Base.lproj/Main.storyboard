@@ -30,6 +30,7 @@
                             <constraint firstItem="oDD-kb-dTy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vFF-nX-rhY"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

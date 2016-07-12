@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -37,10 +37,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Wej-1N-Dfp" secondAttribute="bottom" constant="20" id="dXx-N6-0Oh"/>
-                            <constraint firstItem="Wej-1N-Dfp" firstAttribute="leading" secondItem="sA5-OF-ihF" secondAttribute="leading" constant="20" id="x1M-qY-M4O"/>
+                            <constraint firstItem="Wej-1N-Dfp" firstAttribute="leading" secondItem="sA5-OF-ihF" secondAttribute="leading" constant="16" id="R1C-wE-0M0"/>
+                            <constraint firstAttribute="bottom" secondItem="Wej-1N-Dfp" secondAttribute="bottom" constant="16" id="eEi-ok-8kr"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="optionsButton" destination="Wej-1N-Dfp" id="oLB-pJ-HpH"/>
@@ -170,6 +171,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="45" y="280" width="310" height="240"/>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -204,18 +208,19 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.54996175169999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lzT-gz-HqD" secondAttribute="trailing" id="1uk-FZ-h1x"/>
-                            <constraint firstAttribute="trailing" secondItem="QyV-GO-pYP" secondAttribute="trailing" constant="20" id="N3W-kU-2Ky"/>
                             <constraint firstAttribute="bottom" secondItem="lzT-gz-HqD" secondAttribute="bottom" id="RUU-E8-CPb"/>
                             <constraint firstItem="Nrd-9N-e2M" firstAttribute="width" secondItem="zQ3-aC-gmR" secondAttribute="width" id="Sra-oB-DI0"/>
+                            <constraint firstAttribute="trailing" secondItem="QyV-GO-pYP" secondAttribute="trailing" constant="16" id="ev6-46-ltP"/>
+                            <constraint firstItem="QyV-GO-pYP" firstAttribute="top" secondItem="zQ3-aC-gmR" secondAttribute="top" constant="16" id="fOJ-cw-rj3"/>
                             <constraint firstItem="lzT-gz-HqD" firstAttribute="leading" secondItem="zQ3-aC-gmR" secondAttribute="leading" id="iTd-gh-rIG"/>
                             <constraint firstItem="lzT-gz-HqD" firstAttribute="top" secondItem="zQ3-aC-gmR" secondAttribute="top" id="jAq-R8-wHz"/>
-                            <constraint firstItem="QyV-GO-pYP" firstAttribute="top" secondItem="gVt-Ou-IYx" secondAttribute="bottom" constant="20" id="kSv-uK-Y7L"/>
                             <constraint firstItem="Nrd-9N-e2M" firstAttribute="height" secondItem="zQ3-aC-gmR" secondAttribute="height" id="mlo-Q6-Fsw"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="closeButton" destination="QyV-GO-pYP" id="0mw-1o-sg5"/>

@@ -33,10 +33,10 @@ class CribbleView: UIView {
         let lineWidth = 1 / UIScreen.mainScreen().scale
         
         let context = UIGraphicsGetCurrentContext()
+        CGContextSetShouldAntialias(context, false)
         CGContextSetLineWidth(context, lineWidth)
         CGContextSetStrokeColorWithColor(context, options.color.colorWithAlphaComponent(options.opacity).CGColor)
         
-        // Calculate column width and row height
         let columnWidth: CGFloat = options.horizontalStep
         let rowHeight: CGFloat = options.verticalStep
         
@@ -46,7 +46,7 @@ class CribbleView: UIView {
         // Drawing column lines
         for var i in 0..<Int(numberOfColumns) + 1 {
             
-            let startPoint = CGPoint(x: columnWidth * CGFloat(i) - lineWidth, y: 0)
+            let startPoint = CGPoint(x: columnWidth * CGFloat(i), y: 0)
             let endPoint = CGPoint(x: startPoint.x, y: frame.size.height)
             
             CGContextMoveToPoint(context, startPoint.x, startPoint.y)
@@ -59,7 +59,7 @@ class CribbleView: UIView {
         // Drawing row lines
         for var j in 0..<Int(numberOfRows) + 1 {
             
-            let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j) - lineWidth)
+            let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j))
             let endPoint = CGPoint(x: frame.size.width, y: startPoint.y)
             
             CGContextMoveToPoint(context, startPoint.x, startPoint.y)

@@ -48,10 +48,6 @@ public class Cribble {
         }
     }
 
-    public init(options: CribbleOptions = CribbleOptions.defaultOptions()) {
-        
-    }
-    
     public func display() {
         
         if window != nil {
@@ -64,7 +60,7 @@ public class Cribble {
         }
         
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
-        window?.windowLevel = UIWindowLevelAlert + 1
+        window?.windowLevel = UIWindowLevelStatusBar + 1
         window?.rootViewController = cribbleController
         window?.makeKeyAndVisible()
     }
