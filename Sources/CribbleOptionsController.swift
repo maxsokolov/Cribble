@@ -60,6 +60,9 @@ class CribbleOptionsController: UIViewController {
         closeButton.layer.shadowOpacity = 0.1
         closeButton.layer.shadowOffset = CGSizeMake(0, 10)
         
+        let image = UIImage(named: "cribble_close_icon", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+        closeButton.setImage(image, forState: .Normal)
+        
         setupColors(colors[colorIndex].color)
     }
     
@@ -76,6 +79,7 @@ class CribbleOptionsController: UIViewController {
         opacityValueLabel.textColor = color
         opacitySlider.minimumTrackTintColor = color
         opacitySlider.maximumTrackTintColor = color
+        closeButton.tintColor = color
     }
     
     @IBAction func colorButtonClicked(sender: UIButton) {
