@@ -77,6 +77,8 @@ public class Cribble {
 
         window?.hidden = true
         window?.rootViewController = nil
+        cribbleController?.presentedViewController?.dismissViewControllerAnimated(false, completion: nil)
+        cribbleController = nil
         
         window?.removeFromSuperview()
         window = nil
