@@ -59,9 +59,8 @@ class CribbleOptionsController: UIViewController {
         closeButton.layer.shadowRadius = 5
         closeButton.layer.shadowOpacity = 0.1
         closeButton.layer.shadowOffset = CGSizeMake(0, 10)
-        
-        let image = UIImage(named: "cribble_close_icon", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
-        closeButton.setImage(image, forState: .Normal)
+
+        closeButton.setImage(CribbleImage.close.image, forState: .Normal)
         
         setupColors(colors[colorIndex].color)
     }
