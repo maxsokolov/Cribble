@@ -64,6 +64,7 @@ public class Cribble {
         }
         
         window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
+        window?.windowLevel = UIWindowLevelAlert + 1
         window?.rootViewController = cribbleController
         window?.makeKeyAndVisible()
     }
@@ -74,6 +75,9 @@ public class Cribble {
             return
         }
 
+        window?.hidden = true
+        window?.rootViewController = nil
+        
         window?.removeFromSuperview()
         window = nil
     }

@@ -59,7 +59,6 @@ class CribbleOptionsController: UIViewController {
         closeButton.layer.shadowRadius = 5
         closeButton.layer.shadowOpacity = 0.1
         closeButton.layer.shadowOffset = CGSizeMake(0, 10)
-
         closeButton.setImage(CribbleImage.close.image, forState: .Normal)
         
         setupColors(colors[colorIndex].color)
