@@ -13,7 +13,6 @@
 		5027A0411D355DA2001AF471 /* cribble_options_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A03E1D355DA2001AF471 /* cribble_options_icon.png */; };
 		5027A0421D355DA2001AF471 /* cribble_options_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A03F1D355DA2001AF471 /* cribble_options_icon@2x.png */; };
 		5027A0431D355DA2001AF471 /* cribble_options_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5027A0401D355DA2001AF471 /* cribble_options_icon@3x.png */; };
-		504181961D2AD53300B89537 /* Cribble.h in Headers */ = {isa = PBXBuildFile; fileRef = 504181951D2AD53300B89537 /* Cribble.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5041819F1D2AD5BF00B89537 /* Cribble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5041819E1D2AD5BF00B89537 /* Cribble.swift */; };
 		DAC4F5BC1D325318004DA9DF /* Cribble.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */; };
 		DAC4F5BE1D325463004DA9DF /* CribbleOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */; };
@@ -30,9 +29,8 @@
 		5027A03F1D355DA2001AF471 /* cribble_options_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_options_icon@2x.png"; sourceTree = "<group>"; };
 		5027A0401D355DA2001AF471 /* cribble_options_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cribble_options_icon@3x.png"; sourceTree = "<group>"; };
 		504181921D2AD53300B89537 /* Cribble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cribble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		504181951D2AD53300B89537 /* Cribble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cribble.h; sourceTree = "<group>"; };
-		504181971D2AD53300B89537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5041819E1D2AD5BF00B89537 /* Cribble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cribble.swift; sourceTree = "<group>"; };
+		DA95B7E91D35A0E900550AB3 /* Cribble.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cribble.plist; sourceTree = "<group>"; };
 		DAC4F5BB1D325318004DA9DF /* Cribble.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cribble.storyboard; sourceTree = "<group>"; };
 		DAC4F5BD1D325463004DA9DF /* CribbleOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleOptionsController.swift; sourceTree = "<group>"; };
 		DAC4F5BF1D3254A3004DA9DF /* CribbleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CribbleController.swift; sourceTree = "<group>"; };
@@ -55,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				5041819D1D2AD5AE00B89537 /* Sources */,
-				504181941D2AD53300B89537 /* Cribble */,
+				DA95B7E81D35A0CE00550AB3 /* Configs */,
 				504181931D2AD53300B89537 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,15 +64,6 @@
 				504181921D2AD53300B89537 /* Cribble.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		504181941D2AD53300B89537 /* Cribble */ = {
-			isa = PBXGroup;
-			children = (
-				504181951D2AD53300B89537 /* Cribble.h */,
-				504181971D2AD53300B89537 /* Info.plist */,
-			);
-			path = Cribble;
 			sourceTree = "<group>";
 		};
 		5041819D1D2AD5AE00B89537 /* Sources */ = {
@@ -96,6 +85,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		DA95B7E81D35A0CE00550AB3 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				DA95B7E91D35A0E900550AB3 /* Cribble.plist */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -103,7 +100,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				504181961D2AD53300B89537 /* Cribble.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +287,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Cribble/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Configs/Cribble.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -310,7 +306,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Cribble/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Configs/Cribble.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
