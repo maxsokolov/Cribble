@@ -66,7 +66,7 @@ enum CribbleImage {
     var image: UIImage? {
         switch self {
         case .close:
-            return UIImage(named: "cribble_close_icon", inBundle: NSBundle(forClass: Cribble.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+            return UIImage(named: "cribble_close_icon", inBundle: NSBundle.frameworkBundle, compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
         }
     }
 }

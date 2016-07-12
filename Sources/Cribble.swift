@@ -20,6 +20,17 @@
 
 import UIKit
 
+extension NSBundle {
+    
+    static var frameworkBundle: NSBundle? {
+        let bundle = NSBundle(forClass: Cribble.self)
+        if let path = bundle.pathForResource("Cribble", ofType: "bundle") {
+            return NSBundle(path: path)
+        }
+        return bundle
+    }
+}
+
 class CribbleWindow: UIWindow {
     
     var touchableRect: CGRect?
@@ -53,8 +64,8 @@ public class Cribble {
         if window != nil {
             return
         }
-    
-        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle(forClass: self.dynamicType)).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
+
+        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle.frameworkBundle).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
         cribbleController?.onChangeOptionsButtonFrame = { [weak self] frame in
             self?.window?.touchableRect = frame
         }
