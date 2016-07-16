@@ -24,6 +24,7 @@ class CribbleController: UIViewController {
 
     @IBOutlet weak var optionsButton: UIButton!
 
+    var options: CribbleOptions?
     var onChangeOptionsButtonFrame: ((frame: CGRect?) -> Void)?
     var cribbleView: CribbleView? {
         return view as? CribbleView
@@ -37,7 +38,7 @@ class CribbleController: UIViewController {
         optionsButton.layer.shadowOpacity = 0.2
         optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
         
-        setupOptions(CribbleOptions.defaultOptions())
+        setup(options: options ?? CribbleOptions.defaultOptions())
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -56,11 +57,11 @@ class CribbleController: UIViewController {
         guard let optionsController = segue.destinationViewController as? CribbleOptionsController else { return }
         
         optionsController.onOptionsChanged = { [weak self] options in
-            self?.setupOptions(options)
+            self?.setup(options: options)
         }
     }
-    
-    func setupOptions(options: CribbleOptions) {
+
+    func setup(options options: CribbleOptions) {
 
         cribbleView?.options = options
         optionsButton.backgroundColor = options.color

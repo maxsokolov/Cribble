@@ -73,10 +73,18 @@ enum CribbleImage {
 
 public struct CribbleOptions {
     
-    let horizontalStep: CGFloat
-    let verticalStep: CGFloat
-    let opacity: CGFloat
-    let color: UIColor
+    public let horizontalStep: CGFloat
+    public let verticalStep: CGFloat
+    public let opacity: CGFloat
+    public let color: UIColor
+    
+    public init(horizontalStep: CGFloat, verticalStep: CGFloat, opacity: CGFloat, color: UIColor) {
+
+        self.horizontalStep = horizontalStep
+        self.verticalStep = verticalStep
+        self.opacity = opacity
+        self.color = color
+    }
 
     static func colors() -> [CribbleColor] {
         return [.red, .orange, .green, .blue, .purple]
