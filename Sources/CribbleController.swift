@@ -60,6 +60,8 @@ class CribbleController: UIViewController {
             self?.setup(options: options)
         }
     }
+    
+    // MARK: - Setup -
 
     func setup(options options: CribbleOptions) {
 
