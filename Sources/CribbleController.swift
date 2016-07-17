@@ -30,6 +30,10 @@ class CribbleController: UIViewController {
         return view as? CribbleView
     }
     
+    static func storyboardController() -> CribbleController? {
+        return UIStoryboard(name: "Cribble", bundle: NSBundle.frameworkBundle).instantiateViewControllerWithIdentifier(String(self)) as? CribbleController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

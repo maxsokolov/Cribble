@@ -66,7 +66,7 @@ public class Cribble {
             return
         }
 
-        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle.frameworkBundle).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
+        cribbleController = CribbleController.storyboardController()
         cribbleController?.options = options
         cribbleController?.onChangeOptionsButtonFrame = { [weak self] frame in
             self?.window?.touchableRect = frame
