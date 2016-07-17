@@ -35,7 +35,7 @@ class CribbleView: UIView {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetShouldAntialias(context, false)
         CGContextSetLineWidth(context, lineWidth)
-        CGContextSetStrokeColorWithColor(context, options.color.colorWithAlphaComponent(options.opacity).CGColor)
+        CGContextSetStrokeColorWithColor(context, options.cribbleColor.color.colorWithAlphaComponent(options.opacity).CGColor)
         
         let columnWidth: CGFloat = options.horizontalStep
         let rowHeight: CGFloat = options.verticalStep

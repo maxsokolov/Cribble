@@ -36,8 +36,12 @@ class CribbleOptionsController: UIViewController {
     @IBOutlet weak var separatorView1HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorView2HeightConstraint: NSLayoutConstraint!
     
-    var colors = CribbleOptions.colors()
-    var colorIndex = 0
+    private var colorIndex = 0
+    private var colors: [CribbleColor] {
+        return options?.colors() ?? []
+    }
+
+    var options: CribbleOptions?
     var onOptionsChanged: ((options: CribbleOptions) -> Void)?
     
     override func prefersStatusBarHidden() -> Bool {

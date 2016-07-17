@@ -43,13 +43,13 @@ class CribbleWindow: UIWindow {
 }
 
 public class Cribble {
-    
+
     public static let shared = Cribble()
     public var options: CribbleOptions?
 
     private var window: CribbleWindow?
     private var cribbleController: CribbleController?
-    
+
     public var hidden: Bool = true {
         didSet {
             if !hidden {

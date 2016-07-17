@@ -56,6 +56,7 @@ class CribbleController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let optionsController = segue.destinationViewController as? CribbleOptionsController else { return }
         
+        optionsController.options = options
         optionsController.onOptionsChanged = { [weak self] options in
             self?.setup(options: options)
         }
@@ -66,6 +67,6 @@ class CribbleController: UIViewController {
     func setup(options options: CribbleOptions) {
 
         cribbleView?.options = options
-        optionsButton.backgroundColor = options.color
+        optionsButton.backgroundColor = options.cribbleColor.color
     }
 }

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
         guard motion == .MotionShake else { return }
 
-        let options = CribbleOptions(horizontalStep: 10, verticalStep: 10, opacity: 0.7, color: UIColor.redColor())
+        let options = CribbleOptions(horizontalStep: 10, verticalStep: 10, opacity: 0.7, color: UIColor.yellowColor())
         
         Cribble.shared.options = options
         Cribble.shared.hidden = !Cribble.shared.hidden
