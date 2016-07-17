@@ -84,6 +84,8 @@ public class Cribble {
             return
         }
 
+        options = cribbleController?.options
+
         window?.hidden = true
         window?.rootViewController = nil
         cribbleController?.presentedViewController?.dismissViewControllerAnimated(false, completion: nil)

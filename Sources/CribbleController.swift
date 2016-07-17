@@ -58,6 +58,8 @@ class CribbleController: UIViewController {
         
         optionsController.options = options
         optionsController.onOptionsChanged = { [weak self] options in
+
+            self?.options = options
             self?.setup(options: options)
         }
     }

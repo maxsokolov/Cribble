@@ -83,26 +83,27 @@ public struct CribbleOptions {
     public let opacity: CGFloat
     public let cribbleColor: CribbleColor
     
-    public init(horizontalStep: CGFloat, verticalStep: CGFloat, opacity: CGFloat, color: UIColor) {
-
-        self.horizontalStep = horizontalStep
-        self.verticalStep = verticalStep
-        self.opacity = opacity
-        self.cribbleColor = .custom(color)
-    }
-
     func colors() -> [CribbleColor] {
-        
+
         var colors: [CribbleColor] = [.red, .orange, .green, .blue, .purple]
-        
         if case .custom = cribbleColor {
             colors.append(cribbleColor)
         }
-        
         return colors
     }
 
     static func defaultOptions() -> CribbleOptions {
-        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, color: CribbleColor.red.color)
+        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, cribbleColor: CribbleColor.red)
+    }
+}
+
+extension CribbleOptions {
+    
+    public init(horizontalStep: CGFloat, verticalStep: CGFloat, opacity: CGFloat, color: UIColor) {
+        
+        self.horizontalStep = horizontalStep
+        self.verticalStep = verticalStep
+        self.opacity = opacity
+        self.cribbleColor = .custom(color)
     }
 }

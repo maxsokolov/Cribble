@@ -36,12 +36,15 @@ class CribbleOptionsController: UIViewController {
     @IBOutlet weak var separatorView1HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var separatorView2HeightConstraint: NSLayoutConstraint!
     
-    private var colorIndex = 0
+    private var currentColorIndex = 0
     private var colors: [CribbleColor] {
         return options?.colors() ?? []
     }
-
-    var options: CribbleOptions?
+    var options: CribbleOptions? {
+        didSet {
+            currentColorIndex = colors.indexOf { $0.title == options?.cribbleColor.title } ?? 0
+        }
+    }
     var onOptionsChanged: ((options: CribbleOptions) -> Void)?
     
     override func prefersStatusBarHidden() -> Bool {
@@ -50,7 +53,7 @@ class CribbleOptionsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let separatorHeight = 1 / UIScreen.mainScreen().scale
         
         separatorView1HeightConstraint.constant = separatorHeight
@@ -67,41 +70,51 @@ class CribbleOptionsController: UIViewController {
         closeButton.layer.shadowOffset = CGSizeMake(0, 10)
         closeButton.setImage(CribbleImage.close.image, forState: .Normal)
         
-        setup(color: colors[colorIndex].color)
+        setup(color: colors[currentColorIndex])
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
     
     // MARK: - Setup -
     
-    func setup(color color: UIColor) {
+    func setup(color cribbleColor: CribbleColor) {
 
-        view.backgroundColor = color
-        separatorView1.backgroundColor = color
-        separatorView2.backgroundColor = color
-        sizeLabel.textColor = color
-        sizeTextField.textColor = color
-        colorLabel.textColor = color
-        colorValueLabel.textColor = color
-        opacityLabel.textColor = color
-        opacityValueLabel.textColor = color
-        opacitySlider.minimumTrackTintColor = color
-        opacitySlider.maximumTrackTintColor = color
-        closeButton.tintColor = color
+        view.backgroundColor = cribbleColor.color
+        separatorView1.backgroundColor = cribbleColor.color
+        separatorView2.backgroundColor = cribbleColor.color
+        sizeLabel.textColor = cribbleColor.color
+        sizeTextField.textColor = cribbleColor.color
+        colorLabel.textColor = cribbleColor.color
+        colorValueLabel.textColor = cribbleColor.color
+        opacityLabel.textColor = cribbleColor.color
+        opacityValueLabel.textColor = cribbleColor.color
+        opacitySlider.minimumTrackTintColor = cribbleColor.color
+        opacitySlider.maximumTrackTintColor = cribbleColor.color
+        closeButton.tintColor = cribbleColor.color
+
+        sizeTextField.text = "\(Int(options?.horizontalStep ?? 8))"
+        colorValueLabel.text = cribbleColor.title
+        opacitySlider.value = Float(options?.opacity ?? 0.5)
+        opacityValueLabel.text = String(format: "%.1f", options?.opacity ?? opacitySlider.value)
     }
 
     // MARK: - IB Actions -
 
     @IBAction func colorButtonClicked(sender: UIButton) {
 
-        colorIndex += 1
-        if colorIndex == colors.count {
-            colorIndex = 0
+        currentColorIndex += 1
+        if currentColorIndex == colors.count {
+            currentColorIndex = 0
         }
         
-        let color = colors[colorIndex]
-        colorValueLabel.text = color.title
+        let color = colors[currentColorIndex]
         
         UIView.animateWithDuration(0.4) {
-            self.setup(color: color.color)
+            self.setup(color: color)
         }
     }
     
@@ -109,8 +122,8 @@ class CribbleOptionsController: UIViewController {
         
         let step = Float(sizeTextField.text ?? "") ?? 8
         let opacity = opacitySlider.value
-    
-        let options = CribbleOptions(horizontalStep: CGFloat(step), verticalStep: CGFloat(step), opacity: CGFloat(opacity), color: colors[colorIndex].color)
+
+        let options = CribbleOptions(horizontalStep: CGFloat(step), verticalStep: CGFloat(step), opacity: CGFloat(opacity), cribbleColor: colors[currentColorIndex])
 
         onOptionsChanged?(options: options)
         
