@@ -33,11 +33,6 @@ class CribbleController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        optionsButton.layer.masksToBounds = false
-        optionsButton.layer.shadowRadius = 5
-        optionsButton.layer.shadowOpacity = 0.2
-        optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
-        
         setup(options: options ?? CribbleOptions.defaultOptions())
     }
     
@@ -69,6 +64,11 @@ class CribbleController: UIViewController {
     func setup(options options: CribbleOptions) {
 
         cribbleView?.options = options
+        
+        optionsButton.layer.masksToBounds = false
+        optionsButton.layer.shadowRadius = 5
+        optionsButton.layer.shadowOpacity = 0.2
+        optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
         optionsButton.backgroundColor = options.cribbleColor.color
     }
 }

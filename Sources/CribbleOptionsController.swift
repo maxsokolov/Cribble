@@ -58,18 +58,8 @@ class CribbleOptionsController: UIViewController {
         
         separatorView1HeightConstraint.constant = separatorHeight
         separatorView2HeightConstraint.constant = separatorHeight
-        
-        optionsView.layer.masksToBounds = false
-        optionsView.layer.shadowRadius = 5
-        optionsView.layer.shadowOpacity = 0.1
-        optionsView.layer.shadowOffset = CGSizeMake(0, 10)
-        
-        closeButton.layer.masksToBounds = false
-        closeButton.layer.shadowRadius = 5
-        closeButton.layer.shadowOpacity = 0.1
-        closeButton.layer.shadowOffset = CGSizeMake(0, 10)
-        closeButton.setImage(CribbleImage.close.image, forState: .Normal)
-        
+
+        setupShadows()
         setup(color: colors[currentColorIndex])
     }
     
@@ -100,6 +90,20 @@ class CribbleOptionsController: UIViewController {
         colorValueLabel.text = cribbleColor.title
         opacitySlider.value = Float(options?.opacity ?? 0.5)
         opacityValueLabel.text = String(format: "%.1f", options?.opacity ?? opacitySlider.value)
+    }
+    
+    func setupShadows() {
+        
+        optionsView.layer.masksToBounds = false
+        optionsView.layer.shadowRadius = 5
+        optionsView.layer.shadowOpacity = 0.1
+        optionsView.layer.shadowOffset = CGSizeMake(0, 10)
+        
+        closeButton.layer.masksToBounds = false
+        closeButton.layer.shadowRadius = 5
+        closeButton.layer.shadowOpacity = 0.1
+        closeButton.layer.shadowOffset = CGSizeMake(0, 10)
+        closeButton.setImage(CribbleImage.close.image, forState: .Normal)
     }
 
     // MARK: - IB Actions -
