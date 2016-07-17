@@ -60,7 +60,7 @@ public class Cribble {
         }
     }
 
-    public func display() {
+    private func display() {
         
         if window != nil {
             return
@@ -78,7 +78,7 @@ public class Cribble {
         window?.makeKeyAndVisible()
     }
     
-    public func hide() {
+    private func hide() {
         
         if window == nil {
             return
