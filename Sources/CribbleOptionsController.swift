@@ -37,9 +37,8 @@ class CribbleOptionsController: UIViewController {
     @IBOutlet weak var separatorView2HeightConstraint: NSLayoutConstraint!
     
     private var currentColorIndex = 0
-    private var colors: [CribbleColor] {
-        return options?.colors() ?? []
-    }
+    private var colors = CribbleOptions.defaultColors()
+    
     var options: CribbleOptions? {
         didSet {
             currentColorIndex = colors.indexOf { $0.title == options?.cribbleColor.title } ?? 0

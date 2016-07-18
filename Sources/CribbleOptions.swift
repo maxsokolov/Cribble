@@ -83,13 +83,8 @@ public struct CribbleOptions {
     public let opacity: CGFloat
     public let cribbleColor: CribbleColor
     
-    func colors() -> [CribbleColor] {
-
-        var colors: [CribbleColor] = [.red, .orange, .green, .blue, .purple]
-        if case .custom = cribbleColor {
-            colors.append(cribbleColor)
-        }
-        return colors
+    static func defaultColors() -> [CribbleColor] {
+        return [.red, .orange, .green, .blue, .purple]
     }
 
     static func defaultOptions() -> CribbleOptions {
