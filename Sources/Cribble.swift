@@ -43,12 +43,13 @@ class CribbleWindow: UIWindow {
 }
 
 public class Cribble {
-    
+
     public static let shared = Cribble()
+    public var options: CribbleOptions?
 
     private var window: CribbleWindow?
     private var cribbleController: CribbleController?
-    
+
     public var hidden: Bool = true {
         didSet {
             if !hidden {
@@ -59,13 +60,14 @@ public class Cribble {
         }
     }
 
-    public func display() {
+    private func display() {
         
         if window != nil {
             return
         }
 
-        cribbleController = UIStoryboard(name: "Cribble", bundle: NSBundle.frameworkBundle).instantiateViewControllerWithIdentifier("CribbleController") as? CribbleController
+        cribbleController = CribbleController.storyboardController()
+        cribbleController?.options = options
         cribbleController?.onChangeOptionsButtonFrame = { [weak self] frame in
             self?.window?.touchableRect = frame
         }
@@ -76,11 +78,13 @@ public class Cribble {
         window?.makeKeyAndVisible()
     }
     
-    public func hide() {
+    private func hide() {
         
         if window == nil {
             return
         }
+
+        options = cribbleController?.options
 
         window?.hidden = true
         window?.rootViewController = nil

@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
     s.name                  = 'Cribble'
     s.module_name           = 'Cribble'
 
-    s.version               = '1.0.1'
+    s.version               = '1.1.0'
 
     s.homepage              = 'https://github.com/maxsokolov/Cribble'
     s.summary               = 'Swifty tool for visual testing iPhone and iPad apps'

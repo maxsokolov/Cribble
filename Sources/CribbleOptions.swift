@@ -20,13 +20,14 @@
 
 import UIKit
 
-enum CribbleColor {
+public enum CribbleColor {
 
     case red
     case orange
     case green
     case blue
     case purple
+    case custom(UIColor)
 
     var color: UIColor {
         switch self {
@@ -40,6 +41,8 @@ enum CribbleColor {
             return UIColor(red: 97.0 / 255.0, green: 182.0 / 255.0, blue: 1, alpha: 1)
         case .purple:
             return UIColor(red: 118.0 / 255.0, green: 113.0 / 255.0, blue: 244.0 / 255.0, alpha: 1)
+        case .custom(let color):
+            return color
         }
     }
 
@@ -55,6 +58,8 @@ enum CribbleColor {
             return "Blue"
         case .purple:
             return "Purple"
+        case .custom:
+            return "Custom"
         }
     }
 }
@@ -73,16 +78,27 @@ enum CribbleImage {
 
 public struct CribbleOptions {
     
-    let horizontalStep: CGFloat
-    let verticalStep: CGFloat
-    let opacity: CGFloat
-    let color: UIColor
-
-    static func colors() -> [CribbleColor] {
+    public let horizontalStep: CGFloat
+    public let verticalStep: CGFloat
+    public let opacity: CGFloat
+    public let cribbleColor: CribbleColor
+    
+    static func defaultColors() -> [CribbleColor] {
         return [.red, .orange, .green, .blue, .purple]
     }
 
     static func defaultOptions() -> CribbleOptions {
-        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, color: CribbleColor.red.color)
+        return CribbleOptions(horizontalStep: 8, verticalStep: 8, opacity: 0.5, cribbleColor: CribbleColor.red)
+    }
+}
+
+extension CribbleOptions {
+    
+    public init(horizontalStep: CGFloat, verticalStep: CGFloat, opacity: CGFloat, color: UIColor) {
+        
+        self.horizontalStep = horizontalStep
+        self.verticalStep = verticalStep
+        self.opacity = opacity
+        self.cribbleColor = .custom(color)
     }
 }

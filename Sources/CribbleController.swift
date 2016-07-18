@@ -24,20 +24,20 @@ class CribbleController: UIViewController {
 
     @IBOutlet weak var optionsButton: UIButton!
 
+    var options: CribbleOptions?
     var onChangeOptionsButtonFrame: ((frame: CGRect?) -> Void)?
     var cribbleView: CribbleView? {
         return view as? CribbleView
     }
     
+    static func storyboardController() -> CribbleController? {
+        return UIStoryboard(name: "Cribble", bundle: NSBundle.frameworkBundle).instantiateViewControllerWithIdentifier(String(self)) as? CribbleController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        optionsButton.layer.masksToBounds = false
-        optionsButton.layer.shadowRadius = 5
-        optionsButton.layer.shadowOpacity = 0.2
-        optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
-        
-        setupOptions(CribbleOptions.defaultOptions())
+        setup(options: options ?? CribbleOptions.defaultOptions())
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,14 +55,24 @@ class CribbleController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let optionsController = segue.destinationViewController as? CribbleOptionsController else { return }
         
+        optionsController.options = options
         optionsController.onOptionsChanged = { [weak self] options in
-            self?.setupOptions(options)
+
+            self?.options = options
+            self?.setup(options: options)
         }
     }
     
-    func setupOptions(options: CribbleOptions) {
+    // MARK: - Setup -
+
+    func setup(options options: CribbleOptions) {
 
         cribbleView?.options = options
-        optionsButton.backgroundColor = options.color
+        
+        optionsButton.layer.masksToBounds = false
+        optionsButton.layer.shadowRadius = 5
+        optionsButton.layer.shadowOpacity = 0.2
+        optionsButton.layer.shadowOffset = CGSizeMake(0, 5)
+        optionsButton.backgroundColor = options.cribbleColor.color
     }
 }
