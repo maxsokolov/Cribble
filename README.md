@@ -35,7 +35,6 @@ You may want to use your own parameters for the grid. In that case simply use `C
 let options = CribbleOptions(horizontalStep: 10, verticalStep: 10, opacity: 0.7, color: UIColor.redColor())
         
 Cribble.shared.options = options
-Cribble.shared.hidden = !Cribble.shared.hidden
 ```
 
 ## Installation
