@@ -42,7 +42,7 @@ class CribbleWindow: UIWindow {
     }
 }
 
-public class Cribble {
+public class Cribble: NSObject {
 
     public static let shared = Cribble()
     public var options: CribbleOptions?
