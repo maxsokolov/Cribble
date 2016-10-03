@@ -13,17 +13,17 @@ import Cribble
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        let options = CribbleOptions(horizontalStep: 10, verticalStep: 10, opacity: 0.7, color: UIColor.yellowColor())
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        let options = CribbleOptions(horizontalStep: 10, verticalStep: 10, opacity: 0.7, color: UIColor.yellow)
         Cribble.shared.options = options
         
         return true
     }
-    
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        guard motion == .MotionShake else { return }
+
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
 
         Cribble.shared.hidden = !Cribble.shared.hidden
     }

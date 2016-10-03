@@ -41,19 +41,19 @@ class CribbleOptionsController: UIViewController {
     
     var options: CribbleOptions? {
         didSet {
-            currentColorIndex = colors.indexOf { $0.title == options?.cribbleColor.title } ?? 0
+            currentColorIndex = colors.index { $0.title == options?.cribbleColor.title } ?? 0
         }
     }
-    var onOptionsChanged: ((options: CribbleOptions) -> Void)?
+    var onOptionsChanged: ((_ options: CribbleOptions) -> Void)?
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let separatorHeight = 1 / UIScreen.mainScreen().scale
+        let separatorHeight = 1 / UIScreen.main.scale
         
         separatorView1HeightConstraint.constant = separatorHeight
         separatorView2HeightConstraint.constant = separatorHeight
@@ -62,7 +62,7 @@ class CribbleOptionsController: UIViewController {
         setup(color: colors[currentColorIndex])
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         view.endEditing(true)
@@ -96,18 +96,18 @@ class CribbleOptionsController: UIViewController {
         optionsView.layer.masksToBounds = false
         optionsView.layer.shadowRadius = 5
         optionsView.layer.shadowOpacity = 0.1
-        optionsView.layer.shadowOffset = CGSizeMake(0, 10)
+        optionsView.layer.shadowOffset = CGSize(width: 0, height: 10)
         
         closeButton.layer.masksToBounds = false
         closeButton.layer.shadowRadius = 5
         closeButton.layer.shadowOpacity = 0.1
-        closeButton.layer.shadowOffset = CGSizeMake(0, 10)
-        closeButton.setImage(CribbleImage.close.image, forState: .Normal)
+        closeButton.layer.shadowOffset = CGSize(width: 0, height: 10)
+        closeButton.setImage(CribbleImage.close.image, for: UIControlState())
     }
 
     // MARK: - IB Actions -
 
-    @IBAction func colorButtonClicked(sender: UIButton) {
+    @IBAction func colorButtonClicked(_ sender: UIButton) {
 
         currentColorIndex += 1
         if currentColorIndex == colors.count {
@@ -116,24 +116,24 @@ class CribbleOptionsController: UIViewController {
         
         let color = colors[currentColorIndex]
         
-        UIView.animateWithDuration(0.4) {
+        UIView.animate(withDuration: 0.4, animations: {
             self.setup(color: color)
-        }
+        }) 
     }
     
-    @IBAction func closeButtonClicked(sender: UIButton) {
+    @IBAction func closeButtonClicked(_ sender: UIButton) {
         
         let step = Float(sizeTextField.text ?? "") ?? 8
         let opacity = opacitySlider.value
 
         let options = CribbleOptions(horizontalStep: CGFloat(step), verticalStep: CGFloat(step), opacity: CGFloat(opacity), cribbleColor: colors[currentColorIndex])
 
-        onOptionsChanged?(options: options)
+        onOptionsChanged?(options)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func opacityValueChanged(slider: UISlider) {
+    @IBAction func opacityValueChanged(_ slider: UISlider) {
         opacityValueLabel.text = String(format: "%.1f", slider.value)
     }
 }

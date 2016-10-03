@@ -20,12 +20,12 @@
 
 import UIKit
 
-extension NSBundle {
+extension Bundle {
     
-    static var frameworkBundle: NSBundle? {
-        let bundle = NSBundle(forClass: Cribble.self)
-        if let path = bundle.pathForResource("Cribble", ofType: "bundle") {
-            return NSBundle(path: path)
+    static var frameworkBundle: Bundle? {
+        let bundle = Bundle(for: Cribble.self)
+        if let path = bundle.path(forResource: "Cribble", ofType: "bundle") {
+            return Bundle(path: path)
         }
         return bundle
     }
@@ -35,22 +35,22 @@ class CribbleWindow: UIWindow {
     
     var touchableRect: CGRect?
 
-    override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         guard let rect = touchableRect else { return true }
 
-        return CGRectContainsPoint(rect, point)
+        return rect.contains(point)
     }
 }
 
-public class Cribble: NSObject {
+open class Cribble: NSObject {
 
-    public static let shared = Cribble()
-    public var options: CribbleOptions?
+    open static let shared = Cribble()
+    open var options: CribbleOptions?
 
     private var window: CribbleWindow?
     private var cribbleController: CribbleController?
 
-    public var hidden: Bool = true {
+    open var hidden: Bool = true {
         didSet {
             if !hidden {
                 display()
@@ -72,7 +72,7 @@ public class Cribble: NSObject {
             self?.window?.touchableRect = frame
         }
         
-        window = CribbleWindow(frame: UIScreen.mainScreen().bounds)
+        window = CribbleWindow(frame: UIScreen.main.bounds)
         window?.windowLevel = UIWindowLevelStatusBar + 1
         window?.rootViewController = cribbleController
         window?.makeKeyAndVisible()
@@ -86,9 +86,9 @@ public class Cribble: NSObject {
 
         options = cribbleController?.options
 
-        window?.hidden = true
+        window?.isHidden = true
         window?.rootViewController = nil
-        cribbleController?.presentedViewController?.dismissViewControllerAnimated(false, completion: nil)
+        cribbleController?.presentedViewController?.dismiss(animated: false, completion: nil)
         cribbleController = nil
         
         window?.removeFromSuperview()

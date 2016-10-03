@@ -28,20 +28,20 @@ class CribbleView: UIView {
         }
     }
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        let lineWidth = 1 / UIScreen.mainScreen().scale
+        let lineWidth = 1 / UIScreen.main.scale
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetShouldAntialias(context, false)
-        CGContextSetLineWidth(context, lineWidth)
-        CGContextSetStrokeColorWithColor(context, options.cribbleColor.color.colorWithAlphaComponent(options.opacity).CGColor)
+        context?.setShouldAntialias(false)
+        context?.setLineWidth(lineWidth)
+        context?.setStrokeColor(options.cribbleColor.color.withAlphaComponent(options.opacity).cgColor)
         
         let columnWidth: CGFloat = options.horizontalStep
         let rowHeight: CGFloat = options.verticalStep
         
-        let numberOfColumns: CGFloat = UIScreen.mainScreen().bounds.width / columnWidth
-        let numberOfRows: CGFloat = UIScreen.mainScreen().bounds.height / rowHeight
+        let numberOfColumns: CGFloat = UIScreen.main.bounds.width / columnWidth
+        let numberOfRows: CGFloat = UIScreen.main.bounds.height / rowHeight
         
         // Drawing column lines
         for var i in 0..<Int(numberOfColumns) + 1 {
@@ -49,9 +49,9 @@ class CribbleView: UIView {
             let startPoint = CGPoint(x: columnWidth * CGFloat(i), y: 0)
             let endPoint = CGPoint(x: startPoint.x, y: frame.size.height)
             
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
+            context?.move(to: CGPoint(x: startPoint.x, y: startPoint.y))
+            context?.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
+            context?.strokePath()
             
             i += 1
         }
@@ -62,9 +62,9 @@ class CribbleView: UIView {
             let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j))
             let endPoint = CGPoint(x: frame.size.width, y: startPoint.y)
             
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
+            context?.move(to: CGPoint(x: startPoint.x, y: startPoint.y))
+            context?.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
+            context?.strokePath()
             
             j += 1
         }
