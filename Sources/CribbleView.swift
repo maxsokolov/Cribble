@@ -33,9 +33,9 @@ class CribbleView: UIView {
         let lineWidth = 1 / UIScreen.mainScreen().scale
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetShouldAntialias(context, false)
-        CGContextSetLineWidth(context, lineWidth)
-        CGContextSetStrokeColorWithColor(context, options.cribbleColor.color.colorWithAlphaComponent(options.opacity).CGColor)
+        CGContextSetShouldAntialias(context!, false)
+        CGContextSetLineWidth(context!, lineWidth)
+        CGContextSetStrokeColorWithColor(context!, options.cribbleColor.color.colorWithAlphaComponent(options.opacity).CGColor)
         
         let columnWidth: CGFloat = options.horizontalStep
         let rowHeight: CGFloat = options.verticalStep
@@ -49,9 +49,9 @@ class CribbleView: UIView {
             let startPoint = CGPoint(x: columnWidth * CGFloat(i), y: 0)
             let endPoint = CGPoint(x: startPoint.x, y: frame.size.height)
             
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
+            CGContextMoveToPoint(context!, startPoint.x, startPoint.y)
+            CGContextAddLineToPoint(context!, endPoint.x, endPoint.y)
+            CGContextStrokePath(context!)
             
             i += 1
         }
@@ -62,9 +62,9 @@ class CribbleView: UIView {
             let startPoint = CGPoint(x: 0, y: rowHeight * CGFloat(j))
             let endPoint = CGPoint(x: frame.size.width, y: startPoint.y)
             
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-            CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
-            CGContextStrokePath(context)
+            CGContextMoveToPoint(context!, startPoint.x, startPoint.y)
+            CGContextAddLineToPoint(context!, endPoint.x, endPoint.y)
+            CGContextStrokePath(context!)
             
             j += 1
         }
