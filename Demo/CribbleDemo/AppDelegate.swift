@@ -9,6 +9,14 @@
 import UIKit
 import Cribble
 
+extension UIWindow {
+    override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
+        
+        Cribble.shared.hidden = !Cribble.shared.hidden
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,11 +28,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Cribble.shared.options = options
         
         return true
-    }
-
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        guard motion == .motionShake else { return }
-
-        Cribble.shared.hidden = !Cribble.shared.hidden
     }
 }
